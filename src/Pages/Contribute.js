@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
+import Grid from '@mui/material/Grid';
 
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
@@ -52,14 +53,13 @@ function Contribute() {
         </Typography>
 
         <form>
-          <Stack direction="row" spacing="auto">
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={9} md={7}>
             <Autocomplete
               id="institutes"
               size="small"
               sx={{
                 marginBottom: 2,
-                width: "70%",
-                float: "left",
               }}
               options={institutes}
               renderInput={(params) => (
@@ -77,13 +77,13 @@ function Contribute() {
                 });
               }}
             />
+            </Grid>
+            <Grid item xs={12} sm={3} md={3}>
             <Autocomplete
               id="panelists"
               size="small"
               sx={{
                 marginBottom: 2,
-                width: "25%",
-                float: "right",
               }}
               options={[
                 { id: 1, label: "1" },
@@ -107,16 +107,17 @@ function Contribute() {
                 });
               }}
             />
-          </Stack>
+            </Grid>
+          </Grid>
 
-          <Stack direction="row" spacing="auto">
+          <Grid container spacing={3}>
+          <Grid item xs={12} sm={9} md={7}>
             <Autocomplete
               id="domains"
               size="small"
               options={domains}
               sx={{
                 marginBottom: 2,
-                width: "70%",
               }}
               renderInput={(params) => (
                 <TextField {...params} label="Domain" variant="standard" />
@@ -133,6 +134,8 @@ function Contribute() {
                 });
               }}
             />
+            </Grid>
+            <Grid item xs={12} sm={3} md={3}>
             <Autocomplete
               id="work-experience"
               size="small"
@@ -142,7 +145,6 @@ function Contribute() {
               ]}
               sx={{
                 marginBottom: 2,
-                width: "25%",
               }}
               renderInput={(params) => (
                 <TextField
@@ -163,7 +165,8 @@ function Contribute() {
                 });
               }}
             />
-          </Stack>
+            </Grid>
+          </Grid>
 
           <Typography variant="h6" component="h6">
             Questions:
