@@ -1,0 +1,25 @@
+html{
+    min-height: 100vh;
+}
+
+body{
+    background-color: #FAFAFB;
+    min-height: 100vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div{
+    min-height: 100%;
+}
+
+.home-left-part{
+   border-right: solid;
+   border-color: rgb(203, 199, 199);
+   border-width: 1px;
+   min-height: 100%;
+}
