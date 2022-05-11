@@ -40,10 +40,12 @@ function InterviewExperience(props) {
         <div
           style={{
             overflow: "auto",
+            maxHeight: "25rem",
+            minHeight: "25rem"
           }}
         >
           <Typography variant="body1" component="p" sx={{ fontWeight: "500" }} gutterBottom>
-            Questions:{" "}
+            Questions:
           </Typography>
           {exp.questions.map((ques) => {
             questionCount++;
