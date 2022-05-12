@@ -26,11 +26,7 @@ function Contribute() {
     panelists: "",
   });
 
-  const [questions, setquestions] = useState({
-    counter: 1,
-    questionIds: [1],
-    questionValues: [],
-  });
+  const [transcript, setTranscript] = React.useState("");
 
   const [dataPushed, setdataPushed] = useState(false);
 
@@ -169,56 +165,24 @@ function Contribute() {
           </Grid>
 
           <Typography variant="h6" component="h6">
-            Questions:
+            Transcript:
           </Typography>
 
           {/* this is test code for dynamic textfield */}
 
-          <Stack spacing={0}>
-            {questions.questionIds.map((id) => {
-              return (
-                <>
-                  <Typography variant="body1" component="span">
-                    {id}.
-                  </Typography>
-                  <TextField
-                    key={id}
-                    id={String(id)}
-                    variant="standard"
-                    sx={{
-                      marginBottom: "0.4rem",
-                    }}
-                  ></TextField>
-                </>
-              );
-            })}
-          </Stack>
-
-          <IconButton
-            variant="cotained"
-            sx={{
-              display: "block",
-              margin: "1rem 0 1rem auto",
-              color: "#000",
-            }}
-            onClick={() => {
-              let individualQuestion = document.getElementById(
-                String(questions.counter)
-              ).value;
-              setquestions((prevData) => {
-                return {
-                  counter: prevData.counter + 1,
-                  questionIds: [...prevData.questionIds, prevData.counter + 1],
-                  questionValues: [
-                    ...prevData.questionValues,
-                    individualQuestion,
-                  ],
-                };
-              });
-            }}
-          >
-            <AddIcon sx={{ display: "block", margin: "auto", fontSize: 40 }} />
-          </IconButton>
+          <TextField
+          sx={{
+            width :"100%"
+          }}
+          id="outlined-multiline-flexible"
+          minRows={4}
+          multiline
+          value={transcript}
+          onChange={(e, v) => {
+                //e=event, v=value
+                setTranscript(e.target.value);
+              }}
+        />
 
           {/* test code ends here*/}
 
@@ -235,23 +199,21 @@ function Contribute() {
                 formData.domain == "" ||
                 formData.workEx == "" ||
                 formData.panelists == "" ||
-                questions.questionValues == []
+                transcript == ""
               ) {
-                alert("Please select all filters");
+                alert("Please select all filters or don't leave the transcript blank.");
               } else {
-                questions.questionValues.push(
-                  document.getElementById(String(questions.counter)).value
-                );
-                console.log(formData);
-                console.log(questions);
 
-                var res = request("POST", "https://interview-experiences.herokuapp.com/contribute", {
+                console.log(formData);
+                console.log(transcript);
+
+                var res = request("POST", "https://interviewexperiences.herokuapp.com/contribute", {
                   json: {
                     institute: formData.institute,
                     panel: formData.panelists,
                     domain: formData.domain,
                     workEx: formData.workEx == "Fresher" ? false : true,
-                    questions: questions.questionValues,
+                    transcript: transcript,
                   },
                 });
                 setFormData({
@@ -260,11 +222,7 @@ function Contribute() {
                   workEx: "",
                   panelists: "",
                 });
-                setquestions({
-                  counter: 1,
-                  questionIds: [1],
-                  questionValues: [],
-                });
+                setTranscript("");
                 setdataPushed(true);
               }
             }}

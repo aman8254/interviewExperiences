@@ -6,14 +6,15 @@ import { Typography } from "@mui/material";
 function InterviewExperience(props) {
   const exp = props.data;
 
-  let questionCount = 0; //Counter for questions
+  let transcriptArray = exp.transcript.split("\n");
+  console.log(transcriptArray);
 
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Paper
         elevation={3}
         sx={{
-          minHeight: "25rem",
+          minHeight: "22rem",
           padding: "0.5rem",
         }}
       >
@@ -37,21 +38,33 @@ function InterviewExperience(props) {
             borderTop: "5px dotted #8c8787",
           }}
         />
+
+        <Typography
+          variant="body1"
+          component="p"
+          sx={{ fontWeight: "500" }}
+          gutterBottom
+        >
+          Transcript:
+        </Typography>
+
         <div
           style={{
             overflow: "auto",
-            maxHeight: "25rem",
-            minHeight: "25rem"
+            maxHeight: "22rem",
+            minHeight: "22rem",
           }}
         >
-          <Typography variant="body1" component="p" sx={{ fontWeight: "500" }} gutterBottom>
-            Questions:
-          </Typography>
-          {exp.questions.map((ques) => {
-            questionCount++;
-            return(<Typography variant="body1" component="p" key={questionCount}>
-              {questionCount}: {ques}
-            </Typography>);
+          {transcriptArray.map((questions) => {
+            return (
+              <Typography
+                variant="body2"
+                component="p"
+                sx={{ fontWeight: "400", marginBottom: "0.2rem" }}
+              >
+                •  {questions}
+              </Typography>
+            );
           })}
         </div>
       </Paper>

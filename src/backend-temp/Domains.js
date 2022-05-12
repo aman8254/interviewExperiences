@@ -1,6 +1,6 @@
 var request = require('sync-request');
 
-var res = request('GET', 'https://interview-experiences.herokuapp.com/info/domains');
+var res = request('GET', 'https://interviewexperiences.herokuapp.com/info/domains');
 
 let domains = JSON.parse(res.getBody());
 

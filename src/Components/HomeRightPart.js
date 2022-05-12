@@ -13,7 +13,7 @@ var request = require("sync-request");
 function HomeRightPart({ filterData }) {
   if (Object.keys(filterData).length) {
     console.log("Data available");
-    var res = request("POST", "https://interview-experiences.herokuapp.com/info/institutes", {
+    var res = request("POST", "https://interviewexperiences.herokuapp.com/info/institutes", {
       json: {
         institute: filterData.institute,
         domain: filterData.domain,
