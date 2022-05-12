@@ -94,8 +94,8 @@ function HomeLeftPart({setData}) {
             variant="contained"
             sx={{ display: "block", marginLeft: "auto", backgroundColor: '#000' }}
             onClick={()=>{
-              if(formData.institute=="" || formData.domain==""|| formData.workEx==""){
-                alert("Please select all filters");
+              if(formData.institute==""){
+                alert("Please select institute");
               }else{
                 setData(formData);
               }
