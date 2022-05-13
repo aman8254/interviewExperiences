@@ -41,7 +41,7 @@ function HomeRightPart({ filterData }) {
     } else {
       return (
         <div className="home-right-part">
-          <Box sx={{ padding: "6rem" }}>
+          <Box sx={{ padding: "2rem" }}>
             <Paper
               elevation={2}
               sx={{ padding: "1rem", marginBottom: "1.5rem" }}
@@ -52,10 +52,9 @@ function HomeRightPart({ filterData }) {
                 align="center"
                 sx={{ marginBottom: "0.2rem", color: "#363333" }}
               >
-                Sorry No interview experiences found for theses filters.We are
-                expanding our databases rapidly, Hopefully we will get back to
-                you with this data shortly.Try after changing some of the
-                filters.
+                Sorry, No interview experiences found for theses filters.We are
+                expanding our database rapidly, Hopefully we will get back to
+                you with this data shortly or try changing filters.
               </Typography>
             </Paper>
           </Box>
@@ -66,7 +65,7 @@ function HomeRightPart({ filterData }) {
     console.log("Data Not available");
     return (
       <div className="home-right-part">
-        <Box sx={{ padding: "6rem" }}>
+        <Box sx={{ padding: "2rem" }}>
           <Paper elevation={2} sx={{ padding: "1rem", marginBottom: "1.5rem" }}>
             <Typography
               variant="h3"
@@ -82,11 +81,10 @@ function HomeRightPart({ filterData }) {
               align="center"
               sx={{ color: "#5d5c5c" }}
             >
-              Hello everyone, Congratulations for getting a call from the top
-              B-school of the country. You have already achieved one milestone
-              but we have to move forward. We came up to here to not just to
-              stay here but to achieve more.It's a humble request, please
-              contribute to this portal as much as possibe so that we all can
+              Hello everyone, Congratulations on securing a call from the top
+              B-schools of the country. You have already achieved one milestone
+              but we still have a long journey to go.It's a humble request, please
+              contribute to this portal as much as possibe so that we all can help each other and
               grow together.
             </Typography>
             <Typography
