@@ -24,7 +24,7 @@ function HomeLeftPart({setData}) {
           variant="h6"
           component="div"
           gutterBottom
-          sx={{ color: "#000", fontSize: "1.4rem" }}
+          sx={{ color: "#1976d2", fontSize: "1.2rem" }}
         >
           Select filters
         </Typography>
@@ -92,7 +92,7 @@ function HomeLeftPart({setData}) {
           />
           <Button
             variant="contained"
-            sx={{ display: "block", marginLeft: "auto", backgroundColor: '#000' }}
+            sx={{ display: "block", marginLeft: "auto", backgroundColor: '#1976d2' }}
             onClick={()=>{
               if(formData.institute==""){
                 alert("Please select institute");

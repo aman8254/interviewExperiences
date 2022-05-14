@@ -44,13 +44,13 @@ function HomeRightPart({ filterData }) {
           <Box sx={{ padding: "2rem" }}>
             <Paper
               elevation={2}
-              sx={{ padding: "1rem", marginBottom: "1.5rem" }}
+              sx={{ padding: "1rem", marginBottom: "1.5rem",backgroundColor:"#1976d2",color:"#FFF" }}
             >
               <Typography
                 variant="h6"
                 component="h6"
                 align="center"
-                sx={{ marginBottom: "0.2rem", color: "#363333" }}
+                sx={{ marginBottom: "0.2rem" }}
               >
                 Sorry, No interview experiences found for theses filters.We are
                 expanding our database rapidly, Hopefully we will get back to
@@ -66,20 +66,19 @@ function HomeRightPart({ filterData }) {
     return (
       <div className="home-right-part">
         <Box sx={{ padding: "2rem" }}>
-          <Paper elevation={2} sx={{ padding: "1rem", marginBottom: "1.5rem" }}>
+          <Paper elevation={2} sx={{ padding: "1rem", marginBottom: "1.5rem",backgroundColor:"#1976d2",color:"#FFF" }}>
             <Typography
-              variant="h3"
-              component="h3"
+              variant="h5"
+              component="h5"
               align="center"
-              sx={{ marginBottom: "0.2rem", color: "#363333" }}
+              sx={{ marginBottom: "0.2rem" }}
             >
               Let's grow together
             </Typography>
             <Typography
-              variant="body1"
+              variant="body2"
               component="p"
               align="center"
-              sx={{ color: "#5d5c5c" }}
             >
               Hello everyone, Congratulations on securing a call from the top
               B-schools of the country. You have already achieved one milestone
@@ -103,8 +102,6 @@ function HomeRightPart({ filterData }) {
               display: "block",
               width: "7.6rem",
               margin: "auto",
-              borderColor: "#000",
-              color: "#000",
             }}
           >
             Contribute

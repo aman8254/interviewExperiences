@@ -40,10 +40,10 @@ function Contribute() {
         }}
       >
         <Typography
-          variant="h6"
+          variant="h4"
           component="div"
           gutterBottom
-          sx={{ color: "#000", fontSize: "1.4rem", textAlign: "center" }}
+          sx={{ color: "#1976d2", textAlign: "center" }}
         >
           Contribution Form
         </Typography>
@@ -164,7 +164,7 @@ function Contribute() {
             </Grid>
           </Grid>
 
-          <Typography variant="h6" component="h6">
+          <Typography variant="h6" component="h6" sx={{color:"#1976d2"}}>
             Transcript:
           </Typography>
 
@@ -191,7 +191,7 @@ function Contribute() {
             sx={{
               display: "block",
               marginLeft: "auto",
-              backgroundColor: "#000",
+              marginTop: "1rem"
             }}
             onClick={(e) => {
               if (
