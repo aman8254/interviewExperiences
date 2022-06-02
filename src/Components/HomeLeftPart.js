@@ -5,17 +5,39 @@ import Autocomplete from "@mui/material/Autocomplete";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-import institutes from "../backend-temp/institute-names";
-import domains from "../backend-temp/Domains";
-import { useControlled } from "@mui/material";
+const axios = require('axios');
 
-function HomeLeftPart({setData}) {
+
+function HomeLeftPart({ setData }) {
   const [formData, setFormData] = useState({
     institute: "",
     domain: "",
     workEx: "",
   });
 
+  //Loading institutes
+  const [institutes, setInstitutes] = useState([]);
+
+  axios
+    .get("https://interviewexperiences.herokuapp.com/info/institutes")
+    .then((res) => {
+      setInstitutes(res.data);
+    })
+    .catch((err) => {
+      setInstitutes("Error while loading Institutes");
+    });
+
+    //Loading Domains
+  const [domains, setDomains] = useState([]);
+
+  axios
+    .get("https://interviewexperiences.herokuapp.com/info/domains")
+    .then((res) => {
+      setDomains(res.data);
+    })
+    .catch((err) => {
+      setDomains("Error while loading Institutes");
+    });
 
   return (
     <div className="home-left-part">
@@ -38,13 +60,13 @@ function HomeLeftPart({setData}) {
               <TextField {...params} label="Institute" />
             )}
             value={formData.institute}
-            isOptionEqualToValue = {(option,value)=>true}
+            isOptionEqualToValue={(option, value) => true}
             onChange={(e, v) => {
               //e=event, v=value
               setFormData((prevdata) => {
                 return {
                   ...prevdata,
-                  institute: v? v.label:"",
+                  institute: v ? v.label : "",
                 };
               });
             }}
@@ -56,13 +78,13 @@ function HomeLeftPart({setData}) {
             sx={{ marginBottom: 2 }}
             renderInput={(params) => <TextField {...params} label="Domain" />}
             value={formData.domain}
-            isOptionEqualToValue = {(option,value)=>true}
+            isOptionEqualToValue={(option, value) => true}
             onChange={(e, v) => {
               //e=event, v=value
               setFormData((prevdata) => {
                 return {
                   ...prevdata,
-                  domain: v? v.label:"",
+                  domain: v ? v.label : "",
                 };
               });
             }}
@@ -79,24 +101,28 @@ function HomeLeftPart({setData}) {
               <TextField {...params} label="Work Experience" />
             )}
             value={formData.workEx}
-            isOptionEqualToValue = {(option,value)=>true}
+            isOptionEqualToValue={(option, value) => true}
             onChange={(e, v) => {
               //e=event, v=value
               setFormData((prevdata) => {
                 return {
                   ...prevdata,
-                  workEx: v? v.label:"",
+                  workEx: v ? v.label : "",
                 };
               });
             }}
           />
           <Button
             variant="contained"
-            sx={{ display: "block", marginLeft: "auto", backgroundColor: '#1976d2' }}
-            onClick={()=>{
-              if(formData.institute==""){
+            sx={{
+              display: "block",
+              marginLeft: "auto",
+              backgroundColor: "#1976d2",
+            }}
+            onClick={() => {
+              if (formData.institute == "") {
                 alert("Please select institute");
-              }else{
+              } else {
                 setData(formData);
               }
             }}
