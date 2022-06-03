@@ -18,7 +18,6 @@ function HomeRightPart({ filterData }) {
   });
 
   if (Object.keys(filterData).length) {
-    console.log(filterData);
 
     axios
       .post("https://interviewexperiences.herokuapp.com/info/institutes", {

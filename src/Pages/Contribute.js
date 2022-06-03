@@ -9,7 +9,7 @@ import Alert from "@mui/material/Alert";
 import { Paper } from "@mui/material";
 
 var request = require("sync-request");
-const axios = require('axios');
+const axios = require("axios");
 
 function Contribute() {
   const [formData, setFormData] = useState({
@@ -222,9 +222,6 @@ function Contribute() {
                   "Please select all filters or don't leave the transcript blank."
                 );
               } else {
-                console.log(formData);
-                console.log(transcript);
-
                 var res = request(
                   "POST",
                   "https://interviewexperiences.herokuapp.com/contribute",

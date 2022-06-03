@@ -7,7 +7,6 @@ function InterviewExperience(props) {
   const exp = props.data;
 
   let transcriptArray = exp.transcript.split("\n");
-  console.log(transcriptArray);
 
   return (
     <Grid item xs={12} sm={6} md={4}>
